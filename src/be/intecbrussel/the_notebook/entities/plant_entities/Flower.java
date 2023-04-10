@@ -8,10 +8,12 @@ public class Flower extends Plant {
     //constructors
     public Flower(String name) {
         this(name, 0.0);
+        this.smell = Scent.DEFAULT_SCENT;
     }
 
     public Flower(String name, double height) {
-        super(name, 0.0);
+        super(name, height);
+        this.smell = Scent.DEFAULT_SCENT;
     }
 
 

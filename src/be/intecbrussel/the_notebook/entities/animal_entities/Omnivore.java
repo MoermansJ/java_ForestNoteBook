@@ -2,6 +2,7 @@ package be.intecbrussel.the_notebook.entities.animal_entities;
 
 import be.intecbrussel.the_notebook.entities.plant_entities.Plant;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Omnivore extends Animal {
@@ -17,6 +18,7 @@ public class Omnivore extends Animal {
 
     public Omnivore(String name, double weight, double height, double length) {
         super(name, weight, height, length);
+        this.plantDiet = new HashSet<>();
     }
 
 
@@ -40,7 +42,7 @@ public class Omnivore extends Animal {
 
     //custom methods
     public void addPlantToDiet(Plant plant) {
-        //logic to add plant to plantdiet
+        this.plantDiet.add(plant);
     }
 
     @Override

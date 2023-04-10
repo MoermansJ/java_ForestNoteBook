@@ -1,5 +1,7 @@
 package be.intecbrussel.the_notebook.entities.plant_entities;
 
+import java.util.Objects;
+
 public class Plant {
     //properties
     protected String name;
@@ -13,6 +15,7 @@ public class Plant {
 
     public Plant(String name, double height) {
         this.name = name;
+        this.height = height;
     }
 
 
@@ -31,11 +34,22 @@ public class Plant {
 
 
     //custom methods
-
     @Override
     public String toString() {
         return "name='" + name + '\'' +
                 ", height=" + height +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Plant plant)) return false;
+        return getName().equals(plant.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }

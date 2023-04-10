@@ -9,10 +9,14 @@ public class Bush extends Plant {
     //constructors
     public Bush(String name) {
         this(name, 0.0);
+        this.fruit = "DEFAULT FRUIT";
+        this.leafType = LeafType.DEFAULT_LEAFTYPE;
     }
 
     public Bush(String name, double height) {
         super(name, height);
+        this.fruit = "DEFAULT FRUIT";
+        this.leafType = LeafType.DEFAULT_LEAFTYPE;
     }
 
 

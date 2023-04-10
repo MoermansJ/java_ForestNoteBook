@@ -1,5 +1,7 @@
 package be.intecbrussel.the_notebook.entities.animal_entities;
 
+import java.util.Objects;
+
 public class Animal {
     //properties
     protected String name;
@@ -54,11 +56,22 @@ public class Animal {
     //custom methods
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
+        return "name='" + name + '\'' +
                 ", weight=" + weight +
                 ", height=" + height +
                 ", length=" + length +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Animal animal)) return false;
+        return getName().equals(animal.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getWeight(), getHeight(), getLength());
     }
 }

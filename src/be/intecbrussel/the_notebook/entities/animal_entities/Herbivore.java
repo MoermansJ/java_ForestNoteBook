@@ -2,6 +2,7 @@ package be.intecbrussel.the_notebook.entities.animal_entities;
 
 import be.intecbrussel.the_notebook.entities.plant_entities.Plant;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -17,6 +18,7 @@ public class Herbivore extends Animal {
 
     public Herbivore(String name, double weight, double height, double length) {
         super(name, weight, height, length);
+        this.plantDiet = new HashSet<>();
     }
 
 
@@ -32,7 +34,7 @@ public class Herbivore extends Animal {
 
     //custom methods
     public void addPlantToDiet(Plant plant) {
-        //logic to add plant to diet
+        this.plantDiet.add(plant);
     }
 
     public void printDiet() {

@@ -1,4 +1,4 @@
-package be.intecbrussel.the_notebook.entities.service;
+package be.intecbrussel.the_notebook.service;
 
 import be.intecbrussel.the_notebook.entities.animal_entities.Animal;
 import be.intecbrussel.the_notebook.entities.animal_entities.Carnivore;
@@ -7,6 +7,7 @@ import be.intecbrussel.the_notebook.entities.animal_entities.Omnivore;
 import be.intecbrussel.the_notebook.entities.plant_entities.Plant;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ForestNotebook {
@@ -66,22 +67,55 @@ public class ForestNotebook {
 
     //custom methods
     public void addAnimal(Animal animal) {
-        //logic to add animal
+        if (this.animals.contains(animal)) {
+            return;
+        }
+
+        switch (animal.getClass().getSimpleName().toUpperCase()) {
+            case "OMNIVORE":
+                omnivores.add((Omnivore) animal);
+                break;
+            case "HERBIVORE":
+                herbivores.add((Herbivore) animal);
+                break;
+            case "CARNIVORE":
+                carnivores.add((Carnivore) animal);
+                break;
+            default:
+                System.out.println("ANIMAL CLASS NOT RECOGNISED, CHECK FORESTNOTEBOOK.ADDANIMAL()");
+                return;
+        }
+
+        animals.add(animal);
+        animalCount++;
     }
 
     public void addPlant(Plant plant) {
-        //logic to add plant
+        if (this.plants.contains(plant)) {
+            return;
+        }
+
+        plants.add(plant);
+        plantCount++;
     }
 
     public void printNotebook() {
-        //logic to print notebook
+        System.out.printf("Animals(%d): %s %nPlants(%d): %s \n", animalCount, animals, plantCount, plants);
     }
 
     public void sortAnimalsByName() {
-        //logic to sort animals by name
+        animals.sort(Comparator.comparing(Animal::getName));
+    }
+
+    public void sortAnimalsByHeight() {
+        animals.sort(Comparator.comparing(Animal::getHeight));
     }
 
     public void sortPlantsByName() {
-        //logic to sort plants by name
+        plants.sort(Comparator.comparing(Plant::getName));
+    }
+
+    public void sortPlantsByHeight() {
+        plants.sort(Comparator.comparing(Plant::getHeight));
     }
 }
