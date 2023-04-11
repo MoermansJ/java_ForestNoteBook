@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23bd6522-fcdb-4e7a-8bfd-b00d262e00d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/custom/collections/UniqueArrayList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/app/NatureApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/app/NatureApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/custom/collections/UniqueArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/custom/collections/UniqueArrayList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/service/ForestNotebook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/intecbrussel/the_notebook/service/ForestNotebook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

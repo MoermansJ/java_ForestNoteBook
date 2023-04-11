@@ -12,10 +12,12 @@ public class UniqueArrayList<E> extends ArrayList<E> {
     }
 
     //how do I make the add(int, E) return type boolean and use the super.add(int, E)?????
-    @Override
-    public void add(int index, E element) {
-        if (!this.contains(element)) {
-            super.add(index, element);
-        }
-    }
+//    @Override
+//    public void add(int index, E element) {
+//        if (!this.contains(element)) {
+//            super.add(index, element);
+//        }
+//    }
+
+    
 }

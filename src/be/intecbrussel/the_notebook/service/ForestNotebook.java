@@ -73,21 +73,24 @@ public class ForestNotebook {
     //custom methods
     public void addAnimal(Animal animal) {
         if (animals.add(animal)) {
-            switch (animal.getClass().getSimpleName().toUpperCase()) {
-                case "OMNIVORE":
-                    omnivores.add((Omnivore) animal);
-                    break;
-                case "HERBIVORE":
-                    herbivores.add((Herbivore) animal);
-                    break;
-                case "CARNIVORE":
-                    carnivores.add((Carnivore) animal);
-                    break;
-                default:
-                    System.out.println("ANIMAL CLASS NOT RECOGNISED, CHECK FORESTNOTEBOOK.ADDANIMAL()");
-                    return;
-            }
+            incrementAnimalDiet(animal);
             animalCount++;
+        }
+    }
+
+    private void incrementAnimalDiet(Animal animal) {
+        switch (animal.getClass().getSimpleName().toUpperCase()) {
+            case "OMNIVORE":
+                omnivores.add((Omnivore) animal);
+                break;
+            case "HERBIVORE":
+                herbivores.add((Herbivore) animal);
+                break;
+            case "CARNIVORE":
+                carnivores.add((Carnivore) animal);
+                break;
+            default:
+                System.out.println("ANIMAL CLASS NOT RECOGNISED, CHECK ForestNotebook.IncrementAnimalDiet()");
         }
     }
 
