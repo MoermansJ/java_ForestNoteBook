@@ -1,12 +1,12 @@
 package be.intecbrussel.the_notebook.service;
 
+import be.intecbrussel.the_notebook.custom.collections.UniqueArrayList;
 import be.intecbrussel.the_notebook.entities.animal_entities.Animal;
 import be.intecbrussel.the_notebook.entities.animal_entities.Carnivore;
 import be.intecbrussel.the_notebook.entities.animal_entities.Herbivore;
 import be.intecbrussel.the_notebook.entities.animal_entities.Omnivore;
 import be.intecbrussel.the_notebook.entities.plant_entities.Plant;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -23,11 +23,16 @@ public class ForestNotebook {
 
     //constructors
     public ForestNotebook() {
-        carnivores = new ArrayList<>();
-        omnivores = new ArrayList<>();
-        herbivores = new ArrayList<>();
-        animals = new ArrayList<>();
-        plants = new ArrayList<>();
+//        carnivores = new ArrayList<>();
+//        omnivores = new ArrayList<>();
+//        herbivores = new ArrayList<>();
+//        animals = new ArrayList<>();
+//        plants = new ArrayList<>();
+        carnivores = new UniqueArrayList<>();
+        omnivores = new UniqueArrayList<>();
+        herbivores = new UniqueArrayList<>();
+        animals = new UniqueArrayList<>();
+        plants = new UniqueArrayList<>();
     }
 
 
@@ -67,36 +72,29 @@ public class ForestNotebook {
 
     //custom methods
     public void addAnimal(Animal animal) {
-        if (this.animals.contains(animal)) {
-            return;
+        if (animals.add(animal)) {
+            switch (animal.getClass().getSimpleName().toUpperCase()) {
+                case "OMNIVORE":
+                    omnivores.add((Omnivore) animal);
+                    break;
+                case "HERBIVORE":
+                    herbivores.add((Herbivore) animal);
+                    break;
+                case "CARNIVORE":
+                    carnivores.add((Carnivore) animal);
+                    break;
+                default:
+                    System.out.println("ANIMAL CLASS NOT RECOGNISED, CHECK FORESTNOTEBOOK.ADDANIMAL()");
+                    return;
+            }
+            animalCount++;
         }
-
-        switch (animal.getClass().getSimpleName().toUpperCase()) {
-            case "OMNIVORE":
-                omnivores.add((Omnivore) animal);
-                break;
-            case "HERBIVORE":
-                herbivores.add((Herbivore) animal);
-                break;
-            case "CARNIVORE":
-                carnivores.add((Carnivore) animal);
-                break;
-            default:
-                System.out.println("ANIMAL CLASS NOT RECOGNISED, CHECK FORESTNOTEBOOK.ADDANIMAL()");
-                return;
-        }
-
-        animals.add(animal);
-        animalCount++;
     }
 
     public void addPlant(Plant plant) {
-        if (this.plants.contains(plant)) {
-            return;
+        if (plants.add(plant)) {
+            plantCount++;
         }
-
-        plants.add(plant);
-        plantCount++;
     }
 
     public void printNotebook() {

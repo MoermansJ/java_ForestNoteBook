@@ -22,7 +22,7 @@ public class NatureApp {
         Animal sheep1 = new Herbivore("Dolly 1", 200.0, 1.5, 2.5);
         Animal sheep2 = new Herbivore("Dolly 2", 200.0, 1.5, 2.5);
         Animal sheep3 = new Herbivore("Dolly 3", 200.0, 1.5, 2.5);
-        Animal dog = new Omnivore("Elvis");
+        Animal dog = new Omnivore("Cerberus");
         Animal pig = new Omnivore("Bacon", 150, 1.0, 1.5);
         Animal ape = new Omnivore("Jonathan", 80, 1.8, 1.8);
 
